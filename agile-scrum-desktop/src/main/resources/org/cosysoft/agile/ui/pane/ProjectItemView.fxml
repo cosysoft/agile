@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox   fx:id="view" fillWidth="true" prefHeight="200"   prefWidth="300"    id="PaneItem" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+    <children>
+        <Label fx:id="name" text="我的名字" />
+        <Text wrappingWidth="200"  fx:id="desc"  text="Text士大夫士大夫\nsdfk"  />
+    </children>
+</VBox>

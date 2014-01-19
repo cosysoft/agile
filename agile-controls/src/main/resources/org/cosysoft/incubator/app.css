@@ -1,0 +1,30 @@
+/* 
+    Document   : db
+    Created on : 2013-1-23, 18:48:09
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.root { 
+
+}
+
+.resizeable{
+
+    -fx-skin:"com.cosysoft.incubator.ui.design.skin.TableSkin";
+
+    -fx-border-color:rgba(4,4,50,.8);
+    -fx-border-width:1px;
+    /*-fx-padding:5px;*/
+    -fx-background-color: #DFB951;
+    -fx-font: bold italic 14px "Arial";
+    -fx-effect: dropshadow( one-pass-box , black , 8 , 0.0 , 2 , 0 );
+}
+
+.resizeable:hover{
+    -fx-background-color: #D2B921;
+}
+.resizeable:selected{
+}
+
