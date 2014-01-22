@@ -1,4 +1,4 @@
 agile
 =====
 
-A Scrum gui tool and add Kanban support in future
+A Scrum gui tool and Kanban support will be added in future
