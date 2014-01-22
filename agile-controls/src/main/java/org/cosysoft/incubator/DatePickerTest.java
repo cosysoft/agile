@@ -7,17 +7,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package org.cosysoft.incubator;
 
-import com.sun.javafx.scene.control.skin.DatePickerContent;
+import com.cathive.fonts.fontawesome.FontAwesomeIcon;
+import com.cathive.fonts.fontawesome.FontAwesomeIconView;
+import java.awt.Color;
+import java.awt.Transparency;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 /**
@@ -25,30 +27,33 @@ import javafx.stage.Stage;
  * @author Bluesky
  */
 public class DatePickerTest extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) {
         Button btn = new Button();
         btn.setText("Say 'Hello World'");
         btn.setOnAction(new EventHandler<ActionEvent>() {
-            
+
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("Hello World!");
             }
         });
-        
-        DatePicker dp = new DatePicker();
-        dp.setPrefSize(100, 200);
-        
-        DatePickerContent dpc = new DatePickerContent(dp);
+
+        FontAwesomeIconView icon = new FontAwesomeIconView();
+        icon.setStyle("-fx-text-fill: rgb(155,122,12)");
+        icon.setIcon(FontAwesomeIcon.ICON_ANDROID);
+        btn.setGraphic(icon);
         StackPane root = new StackPane();
-        
-        
-        root.getChildren().addAll(btn ,dp);
-        
+
+        Font f = Font.font(40);
+        btn.setFont(f);
+        icon.setFont(f);
+        btn.setStyle(" -fx-text-fill: rgb(255,0,0)");
+        root.getChildren().addAll(btn);
+
         Scene scene = new Scene(root, 300, 250);
-        
+
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -65,5 +70,5 @@ public class DatePickerTest extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

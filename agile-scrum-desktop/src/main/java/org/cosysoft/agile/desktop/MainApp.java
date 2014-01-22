@@ -11,15 +11,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javax.inject.Inject;
-import org.cosysoft.agile.ui.pane.ProjectPane;
 
 public class MainApp extends GuiceApplication {
 
     @Inject
     private GuiceFXMLLoader fxmlLoader;
 
-    @Inject
-    private ProjectPane projectPane;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -31,8 +28,8 @@ public class MainApp extends GuiceApplication {
         scene.getStylesheets().add("/styles/Styles.css");
 
         MainView mv = rs.getController();
-        mv.swap(projectPane);
-
+//        mv.swap(projectPane);
+//
         stage.setOnCloseRequest((WindowEvent event) -> {
             System.exit(0);
         });

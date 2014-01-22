@@ -1,3 +1,21 @@
 .button {
     -fx-font-weight: bold;
 }
+
+
+.rounded {
+    -fx-border-color: dodgerblue;
+    -fx-border-width: 2px;
+    -fx-border-radius: 15px;
+    -fx-padding: 20px;
+}
+.hidden-splitter {
+    -fx-background-color: null;
+    /*-fx-padding: 10px;*/
+}
+.hidden-splitter *.split-pane-divider,
+        .hidden-splitter *.vertical-grabber, 
+        .hidden-splitter *.horizontal-grabber {
+    -fx-background-color: null;
+    -fx-border-color: null;
+}

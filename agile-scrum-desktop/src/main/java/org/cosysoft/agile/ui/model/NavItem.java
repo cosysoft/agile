@@ -12,7 +12,7 @@ package org.cosysoft.agile.ui.model;
 public class NavItem {
 
     private String name;
-    private int count;
+    private Integer count;
     private NavType type;
 
     public NavItem() {
@@ -32,11 +32,11 @@ public class NavItem {
         this.name = name;
     }
 
-    public int getCount() {
+    public Integer getCount() {
         return count;
     }
 
-    public void setCount(int count) {
+    public void setCount(Integer count) {
         this.count = count;
     }
 
@@ -46,6 +46,11 @@ public class NavItem {
 
     public void setType(NavType type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "NavItem{" + "name=" + name + ", count=" + count + ", type=" + type + '}';
     }
 
 }

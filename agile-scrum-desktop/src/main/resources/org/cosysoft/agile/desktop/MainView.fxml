@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.sun.javafx.css.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox prefHeight="600.0" prefWidth="800.0"  xmlns="http://javafx.com/javafx/8"  xmlns:fx="http://javafx.com/fxml/1"   fx:controller="org.cosysoft.agile.desktop.MainView" >
+<VBox fx:id="rootGroup" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cosysoft.agile.desktop.MainView">
     <children>
-        <ToolBar prefWidth="200.0" >
+        <ToolBar prefWidth="200.0">
             <items>
-                <SplitMenuButton mnemonicParsing="false" text="SplitMenuButton" >
+                <SplitMenuButton mnemonicParsing="false" text="SplitMenuButton">
                     <items>
                         <MenuItem mnemonicParsing="false" text="Action 1" />
                         <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -16,11 +17,18 @@
                 </SplitMenuButton>
             </items>
         </ToolBar>
-        <SplitPane dividerPositions="0.29797979797979796" focusTraversable="true" prefHeight="160.0" prefWidth="200.0" VBox.vgrow="ALWAYS" >
+        <SplitPane fx:id="splitPane" dividerPositions="0.29797979797979796" focusTraversable="true" prefHeight="160.0" prefWidth="200.0" style="hiddenSplitter" VBox.vgrow="ALWAYS">
             <items>
-                <org.cosysoft.agile.ui.pane.NavPane fx:id="nav" prefWidth="200" minWidth="100"  maxWidth="300" />
-                <TreeView fx:id="nav2" prefHeight="208.0" prefWidth="198.0" minWidth="100" maxWidth="300" />
-                <BorderPane fx:id="master" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                <org.cosysoft.agile.ui.pane.NavPane fx:id="nav" maxWidth="300" minWidth="100" prefWidth="200" />
+                <BorderPane fx:id="master" prefHeight="200.0" prefWidth="200.0">
+                    <center>
+                        <SplitPane dividerPositions="0.29797979797979796" focusTraversable="true" prefHeight="565.0" prefWidth="798.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns:fx="http://javafx.com/fxml">
+                            <items>
+                                <TreeView fx:id="nav2" maxWidth="300" minWidth="100" prefHeight="208.0" prefWidth="198.0" />
+                            </items>
+                        </SplitPane>
+                    </center>
+                </BorderPane>
             </items>
         </SplitPane>
     </children>
