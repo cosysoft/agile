@@ -6,8 +6,8 @@
 
 package org.cosysoft.agile.service.rest;
 
-import java.util.Set;
 import javax.ws.rs.core.Application;
+import java.util.Set;
 
 /**
  *

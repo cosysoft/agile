@@ -1,29 +1,37 @@
 package org.cosysoft.agile.desktop;
 
-import javafx.application.Application;
+import com.cathive.fx.guice.GuiceApplication;
+import com.cathive.fx.guice.GuiceFXMLLoader;
+import com.cathive.fx.guice.GuiceFXMLLoader.Result;
+import com.google.inject.Module;
+import java.util.List;
 import static javafx.application.Application.launch;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import javax.inject.Inject;
 import org.cosysoft.agile.ui.pane.ProjectPane;
-import org.datafx.controller.ViewFactory;
-import org.datafx.controller.context.FXMLViewContext;
-import org.datafx.controller.context.ViewContext;
 
-public class MainApp extends Application {
+public class MainApp extends GuiceApplication {
+
+    @Inject
+    private GuiceFXMLLoader fxmlLoader;
+
+    @Inject
+    private ProjectPane projectPane;
 
     @Override
     public void start(Stage stage) throws Exception {
-        
-        ProjectPane p =new ProjectPane();
-        
-        ViewContext<MainView> mainView =ViewFactory.getInstance().createByController(MainView.class);
 
-        Scene scene = new Scene((Parent) mainView.getRootNode());
+        Result rs = fxmlLoader.load(getClass().getResource("MainView.fxml"));
+        final Parent root = rs.getRoot();
+
+        Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
-        
-        mainView.getController().swap(p);
+
+        MainView mv = rs.getController();
+        mv.swap(projectPane);
 
         stage.setOnCloseRequest((WindowEvent event) -> {
             System.exit(0);
@@ -45,6 +53,11 @@ public class MainApp extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+    }
+
+    @Override
+    public void init(List<Module> modules) throws Exception {
+
     }
 
 }

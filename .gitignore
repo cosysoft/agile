@@ -6,8 +6,11 @@
 *.ear
 
 *.settings
+*.idea
+*.iml
 *.project
 nb*.xml
+*.classpath
 
 
 target/

@@ -12,6 +12,20 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *//*
+ * Copyright 2014 Bluesky.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.cosysoft.scrum.domain;
 
@@ -30,7 +44,7 @@ import javax.persistence.Id;
  */
 @Entity
 @Access(AccessType.PROPERTY)
-public class Project2 implements Serializable {
+public class Project implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -39,10 +53,10 @@ public class Project2 implements Serializable {
     private String about;
     private String name;
 
-    public Project2() {
+    public Project() {
     }
 
-    public Project2(String about, String name) {
+    public Project(String about, String name) {
         this.about = about;
         this.name = name;
     }
@@ -83,10 +97,10 @@ public class Project2 implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        if (!(object instanceof Project2)) {
+        if (!(object instanceof Project)) {
             return false;
         }
-        Project2 other = (Project2) object;
+        Project other = (Project) object;
         return (this.id != null || other.id == null)
                 && (this.id == null || this.id.equals(other.id));
     }

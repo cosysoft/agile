@@ -15,8 +15,12 @@
  */
 package org.cosysoft.scrum.service.mock;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.cosysoft.scrum.domain.Task;
 import org.cosysoft.scrum.service.TaskService;
 
@@ -25,6 +29,18 @@ import org.cosysoft.scrum.service.TaskService;
  * @author Bluesky
  */
 public class MockTaskService implements TaskService<Task> {
+
+    private List<Task> tasks = new ArrayList<>();
+
+    public MockTaskService() {
+        ObjectMapper om = new ObjectMapper();
+        try {
+            tasks = om.readValue(this.getClass().getResourceAsStream("task.json"), List.class);
+        } catch (IOException ex) {
+            Logger.getLogger(MockTaskService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 
     @Override
     public int count() {
@@ -49,13 +65,7 @@ public class MockTaskService implements TaskService<Task> {
     @Override
     public List<Task> findAll() {
 
-        List<Task> tasks = new ArrayList<>();
-
-        Task t = new Task();
-        
-        
-
-        return null;
+        return tasks;
     }
 
 }

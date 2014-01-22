@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="600.0" prefWidth="800.0"  xmlns="http://javafx.com/javafx/8"  xmlns:fx="http://javafx.com/fxml/1"   fx:controller="org.cosysoft.agile.desktop.MainView" >
     <children>
         <ToolBar prefWidth="200.0" >
             <items>
@@ -18,7 +18,8 @@
         </ToolBar>
         <SplitPane dividerPositions="0.29797979797979796" focusTraversable="true" prefHeight="160.0" prefWidth="200.0" VBox.vgrow="ALWAYS" >
             <items>
-                <TreeView fx:id="nav" prefHeight="208.0" prefWidth="198.0" maxWidth="300" />
+                <org.cosysoft.agile.ui.pane.NavPane fx:id="nav" prefWidth="200" minWidth="100"  maxWidth="300" />
+                <TreeView fx:id="nav2" prefHeight="208.0" prefWidth="198.0" minWidth="100" maxWidth="300" />
                 <BorderPane fx:id="master" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
             </items>
         </SplitPane>

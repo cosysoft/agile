@@ -124,7 +124,7 @@ public class Task implements Serializable {
 
     @Override
     public String toString() {
-        return "org.cosysoft.scrum.domain.Task[ id=" + id + " ]";
+        return "Task{" + "id=" + id + ", name=" + name + ", description=" + description + ", remainingHours=" + remainingHours + ", estimateHours=" + estimateHours + ", assignedTo=" + assignedTo + ", status=" + status + '}';
     }
 
 }
