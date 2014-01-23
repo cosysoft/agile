@@ -8,6 +8,7 @@ import java.util.List;
 import static javafx.application.Application.launch;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javax.inject.Inject;
@@ -17,7 +18,6 @@ public class MainApp extends GuiceApplication {
     @Inject
     private GuiceFXMLLoader fxmlLoader;
 
-
     @Override
     public void start(Stage stage) throws Exception {
 
@@ -25,16 +25,14 @@ public class MainApp extends GuiceApplication {
         final Parent root = rs.getRoot();
 
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("/styles/Styles.css");
 
         MainView mv = rs.getController();
-//        mv.swap(projectPane);
-//
+       
         stage.setOnCloseRequest((WindowEvent event) -> {
             System.exit(0);
         });
-        stage.setWidth(800);
-        stage.setHeight(600);
+         scene.getStylesheets().add("/styles/Styles.css");
+        stage.getIcons().add(new Image("/styles/logo.png"));
         stage.setTitle("JavaFX and Maven");
         stage.setScene(scene);
         stage.show();

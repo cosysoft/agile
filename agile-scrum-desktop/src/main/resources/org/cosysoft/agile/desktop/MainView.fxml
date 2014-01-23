@@ -9,9 +9,12 @@
     <children>
         <ToolBar prefWidth="200.0">
             <items>
-                <SplitMenuButton mnemonicParsing="false" text="SplitMenuButton">
+                <SplitMenuButton mnemonicParsing="false" text="新建">
+                    <graphic>
+                        <com.cathive.fonts.fontawesome.FontAwesomeIconView icon="ICON_PLUS" />
+                    </graphic>
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                        <MenuItem mnemonicParsing="false" text="Action 1"  />
                         <MenuItem mnemonicParsing="false" text="Action 2" />
                     </items>
                 </SplitMenuButton>

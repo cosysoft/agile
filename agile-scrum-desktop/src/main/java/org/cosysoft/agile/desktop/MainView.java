@@ -33,13 +33,12 @@ import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
 import javax.inject.Inject;
+import org.cosysoft.agile.ui.ViewManager;
 import org.cosysoft.agile.ui.event.NavItemEvent;
 import org.cosysoft.agile.ui.model.AgileBehavior;
 import org.cosysoft.agile.ui.model.NavItem;
 import org.cosysoft.agile.ui.model.NullBehavior;
 import org.cosysoft.agile.ui.model.ProjectBehavior;
-import org.cosysoft.agile.ui.pane.BurndownPane;
-import org.cosysoft.agile.ui.pane.ProjectPane;
 import org.cosysoft.scrum.domain.Project;
 
 /**
@@ -60,10 +59,7 @@ public class MainView {
     private SplitPane splitPane;
 
     @Inject
-    private BurndownPane burndownPane;
-
-    @Inject
-    private ProjectPane projectPane;
+    private ViewManager viewManager;
 
     private final TreeItem<AgileBehavior> root = new TreeItem(new NullBehavior());
 
@@ -121,15 +117,17 @@ public class MainView {
     }
 
     public void swithBy(NavItem item) {
-        switch (item.getType()) {
-            case PROJECT: {
-                swapTo(projectPane);
-                break;
-            }
-            case BURNDOWN:
-                swapTo(burndownPane);
-                break;
-        }
+//        switch (item.getType()) {
+//            case PROJECT: {
+//                swapTo(projectPane);
+//                break;
+//            }
+//            case BURNDOWN:
+//                swapTo(burndownPane);
+//                break;
+//        }
 
+        Node p = viewManager.getView(item.getType());
+        swapTo(p);
     }
 }

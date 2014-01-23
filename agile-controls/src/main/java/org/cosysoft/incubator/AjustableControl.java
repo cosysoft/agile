@@ -40,7 +40,6 @@ public class AjustableControl extends Application {
         s.setPrefSize(800, 2000);
 
         final Table dt = new Table();
-        final ImageView image = new ImageView(new Image(this.getClass().getResourceAsStream("t2.png")));
 
         s.getChildren().addAll(dt);
         dt.setPrefSize(300, 400);
@@ -59,8 +58,6 @@ public class AjustableControl extends Application {
         root.addEventFilter(MouseEvent.ANY, (Event event) -> {
 //            event.consume();
         });
-//        scene.getStylesheets().add(this.getClass().getResource("app.css").toExternalForm());
-        primaryStage.getIcons().add(new Image(this.getClass().getResourceAsStream("t2.png")));
         primaryStage.setScene(scene);
         primaryStage.show();
 

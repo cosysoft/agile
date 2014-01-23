@@ -13,15 +13,44 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.cosysoft.agile.ui;
+
+import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.scene.Node;
+import org.cosysoft.agile.ui.exception.AgileException;
+import org.cosysoft.agile.ui.model.NavType;
+import org.cosysoft.agile.ui.pane.BurndownPane;
+import org.cosysoft.agile.ui.pane.ProjectPane;
 
 /**
  *
  * @author Bluesky
  */
 public class ViewManager {
-    
-    
-    
+
+    private final HashMap<NavType, Class> viewClass = new HashMap<>();
+
+    private final HashMap<NavType, Node> viewContainer = new HashMap<>();
+
+    public ViewManager() {
+        viewClass.put(NavType.PROJECT, ProjectPane.class);
+        viewClass.put(NavType.BURNDOWN, BurndownPane.class);
+    }
+
+    public Node getView(NavType key) {
+        if (viewContainer.get(key) == null) {
+            try {
+                Class cls = viewClass.get(key);
+                Node ct = (Node) cls.newInstance();
+                viewContainer.put(key, ct);
+            } catch (InstantiationException | IllegalAccessException ex) {
+                Logger.getLogger(ViewManager.class.getName()).log(Level.SEVERE, null, ex);
+                throw new AgileException("error create content view", ex);
+            }
+        }
+        return viewContainer.get(key);
+    }
+
 }
