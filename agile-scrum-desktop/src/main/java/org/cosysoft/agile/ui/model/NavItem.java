@@ -5,11 +5,21 @@
  */
 package org.cosysoft.agile.ui.model;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  *
  * @author Bluesky
  */
 public class NavItem {
+
+    public static final NavItem EMPTY = new NavItem("Root", 35, NavType.EMPTY);
+
+    public static final List<NavItem> navs = Arrays.asList(new NavItem("Project", 5, NavType.PROJECT),
+            new NavItem("BackLog", 15, NavType.BACKLOG),
+            new NavItem("Task", 35, NavType.TASK),
+            new NavItem("Burndown", 1, NavType.BURNDOWN));
 
     private String name;
     private Integer count;

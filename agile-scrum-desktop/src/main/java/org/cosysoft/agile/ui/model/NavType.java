@@ -15,6 +15,6 @@ package org.cosysoft.agile.ui.model;
  */
 public enum NavType {
 
-    OVERVIEW, PEOPLE, PROJECT, BACKLOG, SPRINT, TASK, BURNDOWN;
+    OVERVIEW, PEOPLE, PROJECT, BACKLOG, SPRINT, TASK, BURNDOWN, EMPTY;
 
 }

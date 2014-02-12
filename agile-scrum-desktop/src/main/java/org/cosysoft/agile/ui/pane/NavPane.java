@@ -27,15 +27,10 @@ import org.cosysoft.agile.ui.model.NavType;
  */
 public class NavPane extends ListView<NavItem> {
 
-    final List<NavItem> navs = Arrays.asList(new NavItem("Project", 5, NavType.PROJECT),
-            new NavItem("BackLog", 15, NavType.BACKLOG),
-            new NavItem("Task", 35, NavType.TASK),
-            new NavItem("Burndown", 1, NavType.BURNDOWN));
-
     public NavPane() {
 
         this.setCellFactory(new NavItemCell());
-        this.getItems().addAll(navs);
+        this.getItems().addAll(NavItem.navs);
 
         this.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
@@ -48,6 +43,7 @@ public class NavPane extends ListView<NavItem> {
 
                         System.out.println("change" + oldValue + newValue);
                         Event.fireEvent(NavPane.this, new NavItemEvent(oldValue, newValue, NavItemEvent.NAV_CHANGED));
+
                     }
                 });
 

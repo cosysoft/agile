@@ -33,7 +33,7 @@ public class MainApp extends GuiceApplication {
         });
          scene.getStylesheets().add("/styles/Styles.css");
         stage.getIcons().add(new Image("/styles/logo.png"));
-        stage.setTitle("JavaFX and Maven");
+        stage.setTitle("Scrum Tools");
         stage.setScene(scene);
         stage.show();
     }

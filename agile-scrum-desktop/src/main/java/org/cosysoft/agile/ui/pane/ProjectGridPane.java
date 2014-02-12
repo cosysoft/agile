@@ -7,12 +7,13 @@ import org.cosysoft.scrum.domain.Project;
  *
  * @author Bluesky
  */
-public class ProjectPane extends GridView<Project> {
+public class ProjectGridPane extends GridView<Project> {
 
-    public ProjectPane() {
+    public ProjectGridPane() {
         this.setCellFactory((GridView<Project> param) -> new ProjectGridCell());
         this.setCellHeight(200);
         this.setCellWidth(300);
+        this.setPrefSize(400, 300);
         initProjects();
 
     }
