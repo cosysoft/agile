@@ -17,7 +17,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import org.cosysoft.incubator.ui.Space;
-import org.cosysoft.incubator.ui.design.Table;
+import org.cosysoft.incubator.ui.Table;
 
 /**
  *

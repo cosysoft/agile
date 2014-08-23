@@ -1,10 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.cosysoft</groupId>
     <artifactId>agile-controls</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-
+    <parent>
+        <groupId>org.cosysoft</groupId>
+        <artifactId>agile</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
 
     <dependencies>
         <dependency>
@@ -12,15 +14,21 @@
             <artifactId>fonts-fontawesome</artifactId>
             <version>3.2.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.jfxtras</groupId>
+            <artifactId>jfxtras-labs</artifactId>
+            <version>8.0-r1</version>
+        </dependency>    
+
     </dependencies>
 
 
-    <repositories>
+    <!--    <repositories>
         <repository>
             <id>sonatype-snap</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </repository>
-    </repositories>
+    </repositories>-->
     <build>
         <finalName>fxstar</finalName>
         <plugins>

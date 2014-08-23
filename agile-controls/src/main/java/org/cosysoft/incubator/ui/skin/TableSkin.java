@@ -1,7 +1,7 @@
-package org.cosysoft.incubator.ui.design.skin;
+package org.cosysoft.incubator.ui.skin;
 
-import org.cosysoft.incubator.ui.design.MoveShape;
-import org.cosysoft.incubator.ui.design.DragContext;
+import org.cosysoft.incubator.ui.MoveShape;
+import org.cosysoft.incubator.ui.DragContext;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

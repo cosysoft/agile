@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cosysoft.incubator.ui.design;
+package org.cosysoft.incubator.ui;
 
 import javafx.beans.Observable;
 import javafx.beans.property.BooleanProperty;
@@ -15,7 +15,7 @@ import javafx.scene.control.Skin;
 import javafx.scene.layout.HBox;
 import javafx.scene.shape.Circle;
 import org.cosysoft.incubator.ui.BaseControl;
-import org.cosysoft.incubator.ui.design.skin.TableSkin;
+import org.cosysoft.incubator.ui.skin.TableSkin;
 
 /**
  *

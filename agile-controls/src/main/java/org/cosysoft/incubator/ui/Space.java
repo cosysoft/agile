@@ -4,7 +4,6 @@
  */
 package org.cosysoft.incubator.ui;
 
-import org.cosysoft.incubator.ui.design.Table;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.beans.value.ChangeListener;

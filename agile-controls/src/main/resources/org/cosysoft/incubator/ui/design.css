@@ -20,6 +20,9 @@
     -fx-font: bold italic 14px "Arial";
     -fx-effect: dropshadow( one-pass-box , black , 8 , 0.0 , 2 , 0 );
 }
+.node-view{
+     -fx-background-color: #DFB951;
+}
 
 .table:hover{
     -fx-background-color: #D2B921;
