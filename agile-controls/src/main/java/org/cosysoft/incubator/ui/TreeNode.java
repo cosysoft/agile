@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 import javafx.scene.Node;
 
 /**
@@ -67,9 +68,9 @@ public class TreeNode {
         if (node == null) {
             return 0;
         }
-       
+
         List<TreeNode> currentNodes = node.getChildren();
-         int maxWidth = 1;
+        int maxWidth = 1;
         List<TreeNode> nextNodes = new LinkedList<>();
         while (!currentNodes.isEmpty()) {
             int width = 0;
@@ -126,4 +127,27 @@ public class TreeNode {
         this.children = children;
     }
 
+    public static TreeNode randomTree() {
+        TreeNode root = new TreeNode("root");
+        randomTree(root);
+        return root;
+    }
+
+    private static void randomTree(TreeNode root) {
+        if (root.getLevel() > 8) {
+            return;
+        }
+        int level = 1;
+        Random r = new Random();
+        int l = r.nextInt(4);
+        if (l > 0) {
+            for (int i = 0; i < l; i++) {
+                root.addChild(new TreeNode(root.getName() + level));
+            }
+        }
+        level++;
+        for (TreeNode c : root.getChildren()) {
+            randomTree(c);
+        }
+    }
 }

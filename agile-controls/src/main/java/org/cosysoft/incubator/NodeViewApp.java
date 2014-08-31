@@ -10,6 +10,9 @@
 package org.cosysoft.incubator;
 
 import javafx.application.Application;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
+import javafx.beans.value.ObservableNumberValue;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -26,49 +29,35 @@ import org.cosysoft.incubator.ui.TreeNode;
  * @author Bluesky
  */
 public class NodeViewApp extends Application {
-    
-    private ScrollPane pane = new ScrollPane();
-    
+
+    private final ScrollPane pane = new ScrollPane();
+    private ObservableNumberValue Observable;
+
     @Override
     public void start(Stage primaryStage) {
-        TreeNode tree = new TreeNode("root");
-        buildRoot(tree);
+        TreeNode tree = TreeNode.randomTree();
         NodeView nv = new NodeView(tree);
-        
         pane.setContent(nv);
-        
         VBox h = new VBox();
-        h.getChildren().add(pane);
         VBox.setVgrow(pane, Priority.ALWAYS);
-        Button b = new Button("refresh");
+        Button b = new Button("Random Tree");
+        primaryStage.widthProperty().addListener((Observable observable) -> {
+            b.setPrefWidth(primaryStage.getWidth());
+        });
         b.setOnAction(new EventHandler() {
-            
             @Override
             public void handle(Event event) {
-                nv.refresh();
+                TreeNode t = TreeNode.randomTree();
+                nv.rootProperty.set(t);
             }
-            
+
         });
-        
-        h.getChildren().add(b);
+
+        h.getChildren().addAll(b, pane);
         Scene scene = new Scene(h, 400, 300);
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
         primaryStage.show();
-    }
-    
-    private void buildRoot(TreeNode tree) {
-        TreeNode ch1 = new TreeNode("ch1");
-        tree.addChild(ch1);
-        
-        TreeNode ch2 = new TreeNode("ch2");
-        TreeNode ch22 = new TreeNode("ch22");
-        ch1.addChild(ch2);
-        ch1.addChild(ch22);
-        
-        for (int i = 0; i < 1000; i++) {
-            ch22.addChild(new TreeNode("ch3" + i));
-        }
     }
 
     /**
@@ -82,5 +71,5 @@ public class NodeViewApp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

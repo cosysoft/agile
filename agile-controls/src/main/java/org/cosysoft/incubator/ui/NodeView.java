@@ -6,7 +6,9 @@
 package org.cosysoft.incubator.ui;
 
 import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.control.Skin;
 import org.cosysoft.incubator.ui.skin.NodeViewSkin;
 
@@ -17,19 +19,21 @@ import org.cosysoft.incubator.ui.skin.NodeViewSkin;
 public class NodeView extends BaseControl {
 
     private static final String DEFAULT_STYLE_CLASS = "node-view";
-    private TreeNode root;
+ 
+
+    public final ObjectProperty<TreeNode> rootProperty = new SimpleObjectProperty();
 
     public TreeNode getRoot() {
-        return root;
+        return rootProperty.getValue();
     }
 
     public void setRoot(TreeNode root) {
-        this.root = root;
+        rootProperty.set(root);
     }
 
     public NodeView(TreeNode root) {
-        this.getStyleClass().add(DEFAULT_STYLE_CLASS);
-        this.root = root;
+//        this.getStyleClass().add(DEFAULT_STYLE_CLASS);
+        rootProperty.set(root);
     }
 
     public NodeView() {
@@ -38,7 +42,7 @@ public class NodeView extends BaseControl {
 
     public void refresh() {
         rebuildProperty().set(true);
-        
+
     }
 
     private BooleanProperty rebuild;
